@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoogleSheetToolKit - Formatting Suite for Google Sheets</title>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern Design System & Pastel Harmony Palette */
+        :root {
+            /* Text & Primary Actions */
+            --primary-blue: #3299F0;
+            --primary-blue-hover: #1d82db;
+            --primary-blue-light: #eef7ff;
+            --primary-blue-border: #a0cff8;
+            
+            --text-dark: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+
+            /* Page Canvas Background */
+            --bg-page-body: #cbd5e1;
+
+            /* Harmonious Pastel & Soft Neutral Background Palette */
+            --bg-div-header: #3299F0;
+            --bg-div-banner: #f8fafc;
+            --bg-div-customer-service: #e0f2fe;
+            --bg-div-hero: #A9C9AE;
+            --bg-div-features: #DBDE0B;
+            --bg-div-contact: #FCAB17;
+            --bg-div-terms: #C2C0BC;
+            --bg-div-privacy: #C2BBAE;
+            --bg-div-footer: #145EA8;
+
+            /* Layout Constraints */
+            --max-width: 920px;
+            --card-radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-page-body);
+            color: var(--text-body);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            padding: 32px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .section-card {
+            width: 100%;
+            max-width: var(--max-width);
+            border-radius: var(--card-radius);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .section-inner {
+            padding: 36px 32px;
+        }
+
+        /* 1. Header Card */
+        .div-header {
+            background-color: var(--bg-div-header);
+            border: 1px solid #2563eb;
+        }
+        .div-header .section-inner {
+            padding: 18px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-branding {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        .site-logo {
+            height: 120px;
+            width: auto;
+            object-fit: contain;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 4px 8px;
+            border-radius: 8px;
+        }
+
+        /* 2. Banner Card & Video Player Section */
+        .div-banner {
+            background-color: var(--bg-div-banner);
+            text-align: center;
+        }
+        .div-banner .section-inner {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .banner-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: block;
+        }
+
+        /* Interactive Video Trigger Button */
+        .video-play-btn {
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(50, 153, 240, 0.3);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .video-play-btn:hover {
+            background-color: var(--primary-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(50, 153, 240, 0.4);
+        }
+
+        .video-play-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        /* Video Container and Responsive Frame */
+        .video-container {
+            display: none;
+            width: 100%;
+            margin-top: 20px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background-color: #000000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* 3. Customer Service Card */
+        .div-customer-service {
+            background-color: var(--bg-div-customer-service);
+            border: 1px solid #bae6fd;
+        }
+        .div-customer-service .section-inner {
+            padding: 20px 32px;
+            font-size: 15px;
+            color: #0369a1;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .div-customer-service a {
+            color: #0284c7;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* 4. Hero Tagline Card */
+        .div-hero-tagline {
+            background-color: var(--bg-div-hero);
+            border: 1px solid #c7d2fe;
+            text-align: center;
+        }
+        .hero-heading {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.45;
+            color: #1e1b4b;
+        }
+
+        /* 5. Key Features Card */
+        .div-features {
+            background-color: var(--bg-div-features);
+            border: 1px solid #bbf7d0;
+        }
+        .div-features h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #14532d;
+        }
+        .features-list {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .features-list li {
+            position: relative;
+            padding-left: 28px;
+            font-size: 15px;
+            color: #166534;
+        }
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #16a34a;
+            font-weight: 800;
+            font-size: 16px;
+        }
+        .features-list strong {
+            font-weight: 700;
+            color: #0f5132;
+        }
+
+        /* 6. CONTACT FORM STYLES */
+        .div-contact {
+            background-color: var(--bg-div-contact);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+        }
+
+        .contact-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-blue-light);
+            color: var(--primary-blue);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--primary-blue-border);
+            margin-bottom: 12px;
+        }
+
+        .contact-header-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .div-contact h2 {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .contact-desc {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            max-width: 680px;
+        }
+
+        .contact-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .meta-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .meta-card:hover {
+            border-color: var(--primary-blue-border);
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(50, 153, 240, 0.08);
+        }
+
+        .meta-icon {
+            background-color: var(--primary-blue-light);
+            color: var(--primary-blue);
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .meta-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .meta-text-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .meta-text-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 2px;
+        }
+
+        .pro-contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-row-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .pro-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            position: relative;
+        }
+
+        .label-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pro-form-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .required-badge {
+            color: #ef4444;
+            font-weight: 700;
+            margin-left: 2px;
+        }
+
+        .char-counter {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            color: #94a3b8;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+        }
+
+        .input-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .pro-form-group input,
+        .pro-form-group textarea {
+            width: 100%;
+            padding: 12px 16px 12px 42px;
+            font-family: inherit;
+            font-size: 14px;
+            color: var(--text-dark);
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            outline: none;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pro-form-group textarea {
+            padding-left: 16px;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .pro-form-group input:hover,
+        .pro-form-group textarea:hover {
+            border-color: #94a3b8;
+            background-color: #ffffff;
+        }
+
+        .pro-form-group input:focus,
+        .pro-form-group textarea:focus {
+            background-color: #ffffff;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 4px rgba(50, 153, 240, 0.18);
+        }
+
+        .pro-form-group input:focus + .input-icon,
+        .input-wrapper:focus-within .input-icon {
+            color: var(--primary-blue);
+        }
+
+        .pro-submit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            align-self: flex-start;
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(50, 153, 240, 0.3);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pro-submit-btn:hover {
+            background-color: var(--primary-blue-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(50, 153, 240, 0.4);
+        }
+
+        .pro-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .pro-submit-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.2s ease;
+        }
+
+        .pro-submit-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .pro-submit-btn.loading .btn-text,
+        .pro-submit-btn.loading .btn-icon {
+            display: none;
+        }
+
+        .pro-submit-btn.loading .spinner {
+            display: block;
+        }
+
+        .pro-form-feedback {
+            display: none;
+            align-items: flex-start;
+            gap: 14px;
+            background-color: #f0fdf4;
+            border: 1px solid #86efac;
+            padding: 18px;
+            border-radius: 12px;
+            margin-top: 20px;
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feedback-icon {
+            color: #16a34a;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feedback-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .feedback-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #14532d;
+            margin-bottom: 2px;
+        }
+
+        .feedback-desc {
+            font-size: 13px;
+            color: #166534;
+        }
+
+        /* 7. Terms of Service Card */
+        .div-terms {
+            background-color: var(--bg-div-terms);
+            border: 1px solid #e9d5ff;
+        }
+
+        /* 8. Privacy Policy Card */
+        .div-privacy {
+            background-color: var(--bg-div-privacy);
+            border: 1px solid #cbd5e1;
+        }
+
+        .policy-block h3 {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            color: #1e293b;
+        }
+        .last-updated {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+        .policy-block p {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: #334155;
+        }
+        .policy-block ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+        .policy-block li {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #334155;
+        }
+
+        /* 9. Footer Card */
+        .div-footer {
+            background-color: var(--bg-div-footer);
+            color: #94a3b8;
+            text-align: center;
+        }
+        .div-footer .section-inner {
+            padding: 24px;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive Layout Adaptations */
+        @media (max-width: 768px) {
+            body {
+                padding: 16px 10px;
+                gap: 16px;
+            }
+            .section-inner {
+                padding: 24px 18px;
+            }
+            .hero-heading {
+                font-size: 19px;
+            }
+            .contact-meta-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .form-row-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .pro-submit-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SECTION 1: HEADER DIV -->
+    <div class="section-card div-header">
+        <div class="section-inner">
+            <a href="#" class="site-branding">
+                <img class="site-logo" src="https://lh3.googleusercontent.com/d/1fwnzg34j9cVhdpQyuvVGqGv5gZN-ISf2" alt="GoogleSheetToolKit Logo">
+                <span>GSheets Toolkit Sidebar Addon</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- SECTION 2: BANNER DIV -->
+    <div class="section-card div-banner">
+        <div class="section-inner">
+            <img class="banner-image" src="https://lh3.googleusercontent.com/d/1BE-zx4dHVn_WiecYx7VPW9v7yzTAqaEn" alt="Cell Formatting Toolkit Banner">
+            
+            <!-- Video Trigger Icon Button -->
+            <button class="video-play-btn" id="playVideoBtn" onclick="toggleVideo()">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <span>Watch Product Demo</span>
+            </button>
+
+            <!-- Embedded Google Drive Video Frame Container -->
+            <div class="video-container" id="videoContainer">
+                <iframe id="videoFrame" 
+                    src="https://drive.google.com/file/d/1a5maBTyg7lSleY5FqHoq1r2AGw1_lik-/preview" 
+                    title="GoogleSheetToolKit Demo Video" 
+                    allow="autoplay" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3: CUSTOMER SERVICE DIV -->
+    <div class="section-card div-customer-service">
+        <div class="section-inner">
+            <span>Customer Service :</span>
+            <a href="mailto:eemhan.2020@gmail.com">eemhan.2020@gmail.com</a>
+        </div>
+    </div>
+
+    <!-- SECTION 4: HERO TAGLINE DIV -->
+    <div class="section-card div-hero-tagline">
+        <div class="section-inner">
+            <h1 class="hero-heading">
+                Now you can enjoy working with Google Sheets with your finger tips to get all formatting tasks done in 1/10 of regular formatting time.
+            </h1>
+        </div>
+    </div>
+
+    <!-- SECTION 5: KEY FEATURES DIV -->
+    <div class="section-card div-features">
+        <div class="section-inner">
+            <h2>Key Features &amp; Capabilities</h2>
+            <ul class="features-list">
+                <li>
+                    <strong>High-Speed In-Memory Clipboard:</strong> Cut, copy, and paste ranges—or transpose complex 2D data matrices instantly—using an optimized memory-staging engine.
+                </li>
+                <li>
+                    <strong>Advanced Cell Formatting Suite:</strong> Access custom border controls, cell shading, text direction, slant alignments, and number formats directly from a dedicated dialog box.
+                </li>
+                <li>
+                    <strong>Instant Structural Controls:</strong> Insert rows and columns, adjust precise pixel heights or widths, and auto-fit cell content with a single click.
+                </li>
+                <li>
+                    <strong>Layout &amp; Alignment Toggles:</strong> Switch text alignments (horizontal and vertical), toggle text wrapping, hide/unhide specific ranges, or convert entire sheets between Right-to-Left (RTL) and Left-to-Right (LTR) views.
+                </li>
+                <li>
+                    <strong>1-Click WhatsApp &amp; SMS Messaging:</strong> Launch pre-filled WhatsApp conversations or native SMS messages directly from selected recipient phone numbers without ever leaving your sheet.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+   <!-- SECTION 6: RELIABLE DIRECT CONTACT FORM DIV -->
+    <div class="section-card div-contact" id="contact">
+        <div class="section-inner">
+            <div class="contact-header-badge">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                Help &amp; Support Channel
+            </div>
+
+            <h2>Contact us</h2>
+            <p class="contact-desc">Have questions about installing GoogleSheetToolKit, need technical support, or want to suggest new formatting features? Send us a direct message below.</p>
+            
+            <div class="contact-meta-grid">
+                <div class="meta-card">
+                    <div class="meta-icon">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    </div>
+                    <div>
+                        <div class="meta-text-title">Response Time</div>
+                        <div class="meta-text-value">&lt; 24 Hours SLA</div>
+                    </div>
+                </div>
+
+                <div class="meta-card">
+                    <div class="meta-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
+                    </div>
+                    <div>
+                        <div class="meta-text-title">Direct Support</div>
+                        <div class="meta-text-value">eemhan.2020@gmail.com</div>
+                    </div>
+                </div>
+
+                <div class="meta-card">
+                    <div class="meta-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                    </div>
+                    <div>
+                        <div class="meta-text-title">Support Hours</div>
+                        <div class="meta-text-value">Mon – Fri (GMT)</div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="pro-contact-form" id="contactForm" action="https://formsubmit.co/eemhan.2020@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+                <input type="hidden" name="_subject" id="hiddenSubject" value="[GoogleSheetToolKit] Support Request">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <div class="form-row-grid">
+                    <div class="pro-form-group">
+                        <div class="label-container">
+                            <label for="fullName">Full Name <span class="required-badge">*</span></label>
+                        </div>
+                        <div class="input-wrapper">
+                            <input type="text" id="fullName" name="name" placeholder="e.g. Sarah Jenkins" required>
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pro-form-group">
+                        <div class="label-container">
+                            <label for="email">Email Address <span class="required-badge">*</span></label>
+                        </div>
+                        <div class="input-wrapper">
+                            <input type="email" id="email" name="email" placeholder="sarah@example.com" required>
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pro-form-group">
+                    <div class="label-container">
+                        <label for="subject">Subject <span class="required-badge">*</span></label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" id="subject" name="subject_title" placeholder="How can we help you with GoogleSheetToolKit?" required onchange="syncHiddenSubject(this.value)">
+                        <div class="input-icon">
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pro-form-group">
+                    <div class="label-container">
+                        <label for="message">Detailed Message <span class="required-badge">*</span></label>
+                        <span class="char-counter" id="charCounter">0 / 500</span>
+                    </div>
+                    <textarea id="message" name="message" maxlength="500" placeholder="Please describe your question or feedback in detail..." required oninput="updateCharCounter(this)"></textarea>
+                </div>
+
+                <div class="btn-actions-row">
+                    <button type="submit" class="pro-submit-btn" id="submitBtn">
+                        <span class="btn-text">Send Email Message</span>
+                        <div class="spinner"></div>
+                        <svg class="btn-icon" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
+
+                    <button type="button" class="mailto-fallback-link" onclick="triggerNativeMailto()">
+                        Or open in your default email application &rarr;
+                    </button>
+                </div>
+            </form>
+
+            <div id="formSuccessMessage" class="pro-form-feedback success">
+                <div class="feedback-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <div>
+                    <div class="feedback-title">Email Delivered Successfully!</div>
+                    <div class="feedback-desc">Your message has been sent directly to eemhan.2020@gmail.com. We will get back to you shortly.</div>
+                </div>
+            </div>
+
+            <div id="formErrorMessage" class="pro-form-feedback error">
+                <div class="feedback-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                </div>
+                <div>
+                    <div class="feedback-title" id="errorTitle">Opening Your Email App</div>
+                    <div class="feedback-desc" id="errorDesc">Opening your default mail client to dispatch your message directly to eemhan.2020@gmail.com...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 7: TERMS OF SERVICE DIV -->
+    <div class="section-card div-terms">
+        <div class="section-inner policy-block">
+            <h3>Terms of Service</h3>
+            <div class="last-updated">Last Updated: September 16, 2026</div>
+
+            <p>Welcome to the Cell Formatting Toolkit Add-on (the "Application"). These Terms of Service ("Terms") govern your use of our Google Sheets Add-on software application. By installing or using the Application, you agree to be bound by these Terms. If you do not agree, please do not install or use the Application.</p>
+
+            <p><strong>1. Description of Service</strong><br>
+            The Application is a Google Sheets Add-on that provides a sidebar toolkit with icons designed to perform cell formatting tasks directly within your active spreadsheets.</p>
+
+            <p><strong>2. License Grant</strong><br>
+            We grant you a personal, non-exclusive, non-transferable, revocable license to use the Application solely for your personal or internal business purposes within Google Sheets, subject to these Terms.</p>
+
+            <p><strong>3. User Data and Privacy</strong><br>
+            Your privacy is critical to us. The Application operates locally within your Google Sheets environment to execute formatting actions. It does not collect, store, or transmit your spreadsheet data, formulas, or personal information to any external servers. For more details, please review our Privacy Policy.</p>
+
+            <p><strong>4. Acceptable Use</strong><br>
+            You agree not to:</p>
+            <ul>
+                <li>Modify, reverse engineer, decompile, or disassemble the Application.</li>
+                <li>Use the Application for any illegal purpose or in violation of any local, state, national, or international law.</li>
+                <li>Interfere with or disrupt the performance of the Application or the Google Sheets platform.</li>
+            </ul>
+
+            <p><strong>5. Intellectual Property</strong><br>
+            All intellectual property rights in and to the Application, including its code, design, icons, and layout, belong exclusively to the developer. No ownership rights are transferred to you under these Terms.</p>
+
+            <p><strong>6. Disclaimer of Warranties</strong><br>
+            THE APPLICATION IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE APPLICATION WILL MEET YOUR REQUIREMENTS, OPERATE WITHOUT INTERRUPTION, OR BE ERROR-FREE.</p>
+
+            <p><strong>7. Limitation of Liability</strong><br>
+            IN NO EVENT SHALL THE DEVELOPER BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE APPLICATION, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+
+            <p><strong>8. Changes to Terms</strong><br>
+            We reserve the right to modify these Terms at any time. We will notify you of any changes by updating the "Last Updated" date at the top of these Terms. Your continued use of the Application after changes are posted constitutes your acceptance of the new Terms.</p>
+
+            <p><strong>9. Termination</strong><br>
+            We may terminate or suspend your access to the Application at any time, without prior notice or liability, if you breach these Terms. Upon termination, you must cease all use of the Application and uninstall it from your Google Sheets environment.</p>
+
+            <p><strong>10. Contact Information</strong><br>
+            If you have any questions or feedback regarding these Terms, please contact us at our designated developer support email address.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 8: PRIVACY POLICY DIV -->
+    <div class="section-card div-privacy">
+        <div class="section-inner policy-block">
+            <h3>Privacy Policy</h3>
+            <div class="last-updated">Last Updated: September 16, 2026</div>
+
+            <p><strong>1. INTRODUCTION</strong><br>
+            This Privacy Policy explains how we handle information in our Google Sheets Add-on (the "App"), which provides a sidebar toolkit with icons to perform cell formatting tasks. We are committed to protecting your privacy and ensuring a secure user experience.</p>
+
+            <p><strong>2. INFORMATION WE COLLECT AND RECEIVE</strong><br>
+            Because the App is a local formatting tool, we prioritize your data privacy:</p>
+            <ul>
+                <li><strong>Spreadsheet Data:</strong> The App accesses your active Google Sheet solely to perform the cell formatting actions you trigger (such as font adjustments, colors, borders, and layouts).</li>
+                <li><strong>No Personal Data Collection:</strong> We do not collect, store, or transmit any personal data, email addresses, or the actual content of your spreadsheets to any external servers. All operations are executed locally within your Google Sheets environment.</li>
+            </ul>
+
+            <p><strong>3. HOW DATA IS USED AND PROCESSED</strong></p>
+            <ul>
+                <li><strong>Local Execution:</strong> Any data read from your spreadsheet is processed in real-time to execute the requested formatting command and is immediately discarded from the App's volatile memory.</li>
+                <li><strong>Google Workspace Integration:</strong> The App utilizes standard Google Workspace APIs to interact with your spreadsheet.</li>
+            </ul>
+
+            <p><strong>4. GOOGLE API SERVICES USER DATA POLICY COMPLIANCE</strong><br>
+            The App's use and transfer of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements. We do not transfer, sell, or use your spreadsheet data for advertising, analytics, or any other secondary purposes.</p>
+
+            <p><strong>5. DATA RETENTION AND SECURITY</strong></p>
+            <ul>
+                <li><strong>No Storage:</strong> Since we do not transfer your data to external servers, we do not store any of your information.</li>
+                <li><strong>Security:</strong> We rely on Google's secure infrastructure to run the Add-on and protect your interaction with the Google Sheets platform.</li>
+            </ul>
+
+            <p><strong>6. THIRD-PARTY SERVICES</strong><br>
+            The App does not share any data with third-party services. All formatting logic is self-contained within the Add-on.</p>
+
+            <p><strong>7. CHANGES TO THIS PRIVACY POLICY</strong><br>
+            We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date.</p>
+
+            <p><strong>8. CONTACT US</strong><br>
+            If you have any questions or concerns about this Privacy Policy or our data practices, please contact the developer directly through the Google Workspace Marketplace listing layout.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 9: FOOTER DIV -->
+    <div class="section-card div-footer">
+        <div class="section-inner">
+            All Rights Reserved
+        </div>
+    </div>
+
+     <script>
+        const googleDriveEmbedUrl = "https://drive.google.com/file/d/1a5maBTyg7lSleY5FqHoq1r2AGw1_lik-/preview";
+
+        function toggleVideo() {
+            const container = document.getElementById('videoContainer');
+            const frame = document.getElementById('videoFrame');
+            const btnText = document.querySelector('#playVideoBtn span');
+            const btnIcon = document.querySelector('#playVideoBtn svg');
+
+            if (container.style.display === 'block') {
+                container.style.display = 'none';
+                frame.src = ''; // Clear source to stop playback
+                btnText.textContent = 'Watch Product Demo';
+                btnIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+            } else {
+                container.style.display = 'block';
+                frame.src = googleDriveEmbedUrl; 
+                btnText.textContent = 'Close Video Demo';
+                btnIcon.innerHTML = '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>';
+                container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function updateCharCounter(textarea) {
+            const counter = document.getElementById('charCounter');
+            counter.textContent = `${textarea.value.length} / 500`;
+        }
+
+        function triggerNativeMailto() {
+            const name = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim() || 'GoogleSheetToolKit Support Request';
+            const message = document.getElementById('message').value.trim();
+
+            const bodyText = `Name: ${name}\nSender Email: ${email}\n\nMessage:\n${message}`;
+            const mailtoUrl = `mailto:eemhan.2020@gmail.com?subject=${encodeURIComponent('[GoogleSheetToolKit] ' + subject)}&body=${encodeURIComponent(bodyText)}`;
+            
+            window.location.href = mailtoUrl;
+        }
+
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const form = document.getElementById('contactForm');
+            const successFeedback = document.getElementById('formSuccessMessage');
+            const errorFeedback = document.getElementById('formErrorMessage');
+
+            successFeedback.style.display = 'none';
+            errorFeedback.style.display = 'none';
+
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+
+            const name = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            const payload = {
+                name: name,
+                email: email,
+                _subject: `New Contact Message from GoogleSheetToolKit: ${subject}`,
+                message: message,
+                _captcha: "false",
+                _template: "table"
+            };
+
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/eemhan.2020@gmail.com', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+
+                if (response.ok && (data.success === "true" || data.success === true || response.status === 200)) {
+                    successFeedback.style.display = 'flex';
+                    form.reset();
+                    document.getElementById('charCounter').textContent = '0 / 500';
+                    successFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    throw new Error('Endpoint returned error or first-time activation needed');
+                }
+            } catch (err) {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+
+                errorFeedback.style.display = 'flex';
+                errorFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+                setTimeout(() => {
+                    triggerNativeMailto();
+                }, 1000);
+            }
+        }
+    </script>
+
+</body>
+</html>
