@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emad Eddeen M. H. Abdel Naby | Data Specialist & Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                        EH
+                    </div>
+                    <div>
+                        <a href="#" class="font-bold text-lg tracking-tight text-slate-900 dark:text-white">Emad Eddeen Abdelnaby</a>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Data & AI Specialist</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
+                    <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</a>
+                    <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
+                    <a href="#education" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Education</a>
+                    <a href="#certifications" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Certifications</a>
+                    <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Toggle -->
+                    <button id="themeToggle" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Toggle theme">
+                        <i id="themeIcon" class="fas fa-moon"></i>
+                    </button>
+                    <a href="#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-sm shadow-blue-500/20">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="about" class="pt-12 pb-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-8 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Available for Data Entry, Processing & Analysis Roles
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                    Hi, I'm <span class="gradient-text">Emad Eddeen</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-slate-6xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+                    Data Specialist with over <strong class="text-slate-900 dark:text-white font-semibold">10+ years of experience</strong> in Data Entry, Data Processing, and Data Analysis. Expert in MS Excel, VBA, Power BI, and Generative AI Prompt Engineering.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 text-sm text-slate-600 dark:text-slate-400 pt-2">
+                    <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-blue-500"></i> Alexandria, Egypt</span>
+                    <span class="flex items-center gap-2"><i class="fas fa-graduation-cap text-blue-500"></i> M.Sc. Faculty of Science (Excellent)</span>
+                </div>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#contact" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-all shadow-lg shadow-blue-500/25 flex items-center gap-2">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                    <a href="tel:+201207416818" class="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-medium text-sm transition-colors border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                        <i class="fas fa-phone"></i> +20 120 741 6818
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Summary Card -->
+            <div class="md:col-span-4">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-xl border border-slate-100 dark:border-slate-700/60 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-bl-full pointer-events-none"></div>
+                    
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-blue-600 dark:text-blue-400 text-2xl font-bold border border-slate-200 dark:border-slate-600">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">Emad Eddeen Abdelnaby</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Data Analysis & Processing</p>
+                            <span class="inline-block mt-1 text-xs px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-medium">Full-Time / Remote</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-xs divide-y divide-slate-100 dark:divide-slate-700">
+                        <div class="pt-2 flex justify-between">
+                            <span class="text-slate-500 dark:text-slate-400">Experience</span>
+                            <span class="font-semibold text-slate-800 dark:text-slate-200">10+ Years</span>
+                        </div>
+                        <div class="pt-2 flex justify-between">
+                            <span class="text-slate-500 dark:text-slate-400">Degree</span>
+                            <span class="font-semibold text-slate-800 dark:text-slate-200">M.Sc. (Grade: Excellent)</span>
+                        </div>
+                        <div class="pt-2 flex justify-between">
+                            <span class="text-slate-500 dark:text-slate-400">Gen AI Certified</span>
+                            <span class="font-semibold text-blue-600 dark:text-blue-400">Manara Learning Path</span>
+                        </div>
+                        <div class="pt-2 flex justify-between">
+                            <span class="text-slate-500 dark:text-slate-400">Languages</span>
+                            <span class="font-semibold text-slate-800 dark:text-slate-200">Arabic, English</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="experience" class="py-16 bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase">Professional Experience</h2>
+                <p class="mt-2 text-3xl font-bold text-slate-900 dark:text-white">A Decade of Data Excellence</p>
+                <p class="mt-4 text-slate-600 dark:text-slate-400">Delivering precise data entry, automated processing, and meaningful analytical insights for over 10 years.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Data Entry -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Data Entry</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        High accuracy and speed in raw data collection, entry, validation, and maintenance across diverse formats and digital platforms.
+                    </p>
+                </div>
+
+                <!-- Data Processing -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-100 dark:bg-cyan-900/40 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Data Processing & Automation</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Transforming messy datasets into structured, clean records using Advanced Excel functions, formulas, macros, and VBA scripts.
+                    </p>
+                </div>
+
+                <!-- Data Analysis -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Data Analysis & Reporting</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Extracting actionable business intelligence, creating summaries, visualization dashboards using Power BI and Excel pivot structures.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-xs font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase">Core Competencies</h2>
+            <p class="mt-2 text-3xl font-bold text-slate-900 dark:text-white">Tools, Skills & Expertise</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex justify-center space-x-2 mb-8">
+            <button onclick="filterSkills('all')" class="skill-tab active px-4 py-2 text-sm font-medium rounded-xl bg-blue-600 text-white shadow-md transition-all">All</button>
+            <button onclick="filterSkills('tech')" class="skill-tab px-4 py-2 text-sm font-medium rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">Tech & Tools</button>
+            <button onclick="filterSkills('soft')" class="skill-tab px-4 py-2 text-sm font-medium rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">Soft Skills</button>
+            <button onclick="filterSkills('lang')" class="skill-tab px-4 py-2 text-sm font-medium rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">Languages</button>
+        </div>
+
+        <!-- Skills Grid -->
+        <div id="skillsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Tech Tools -->
+            <div class="skill-card tech bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-blue-500 transition-all">
+                <div class="flex items-center space-x-3 mb-3">
+                    <i class="fas fa-file-excel text-emerald-600 text-2xl"></i>
+                    <h3 class="font-bold text-slate-900 dark:text-white">Advanced MS Excel & VBA</h3>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Complex formulas, automated macros, pivot tables, data modeling, and workflow automation.</p>
+            </div>
+
+            <div class="skill-card tech bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-blue-500 transition-all">
+                <div class="flex items-center space-x-3 mb-3">
+                    <i class="fas fa-robot text-purple-500 text-2xl"></i>
+                    <h3 class="font-bold text-slate-900 dark:text-white">Gen AI & Prompt Engineering</h3>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Certified by Manara. Utilizing generative AI tools to accelerate data tasks and workflow logic.</p>
+            </div>
+
+            <div class="skill-card tech bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-blue-500 transition-all">
+                <div class="flex items-center space-x-3 mb-3">
+                    <i class="fas fa-chart-bar text-amber-500 text-2xl"></i>
+                    <h3 class="font-bold text-slate-900 dark:text-white">Power BI</h3>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Basic knowledge of business intelligence reporting, data visualization, and interactive dashboards.</p>
+            </div>
+
+            <div class="skill-card tech bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-blue-500 transition-all">
+                <div class="flex items-center space-x-3 mb-3">
+                    <i class="fab fa-microsoft text-blue-500 text-2xl"></i>
+                    <h3 class="font-bold text-slate-900 dark:text-white">MS Office & Google Workspace</h3>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Word, PowerPoint, Google Docs, Sheets, Drive, and cloud collaboration tools.</p>
+            </div>
+
+            <div class="skill-card tech bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-blue-500 transition-all">
+                <div class="flex items-center space-x-3 mb-3">
+                    <i class="fab fa-code text-cyan-500 text-2xl"></i>
+                    <h3 class="font-bold text-slate-900 dark:text-white">HTML5, CSS & JavaScript</h3>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Foundational web development skills for understanding web structure and data scraping layout.</p>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="skill-card soft bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-blue-500 transition-all">
+                <div class="flex items-center space-x-3 mb-3">
+                    <i class="fas fa-comments text-blue-600 text-2xl"></i>
+                    <h3 class="font-bold text-slate-900 dark:text-white">Communication Skills</h3>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Clear verbal and written communication across teams and operational levels.</p>
+            </div>
+
+            <div class="skill-card soft bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-blue-500 transition-all">
+                <div class="flex items-center space-x-3 mb-3">
+                    <i class="fas fa-pen-nib text-indigo-500 text-2xl"></i>
+                    <h3 class="font-bold text-slate-900 dark:text-white">Technical & Business Writing</h3>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Adept at preparing structured reports, documentation, executive summaries, and business emails.</p>
+            </div>
+
+            <div class="skill-card soft bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-blue-500 transition-all">
+                <div class="flex items-center space-x-3 mb-3">
+                    <i class="fas fa-users text-teal-500 text-2xl"></i>
+                    <h3 class="font-bold text-slate-900 dark:text-white">Team Spirited & Presentation</h3>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Collaborative team player with strong presentation skills for sharing data insights.</p>
+            </div>
+
+            <!-- Languages -->
+            <div class="skill-card lang bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-blue-500 transition-all">
+                <div class="flex items-center space-x-3 mb-3">
+                    <i class="fas fa-language text-rose-500 text-2xl"></i>
+                    <h3 class="font-bold text-slate-900 dark:text-white">Spoken Languages</h3>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <strong class="text-slate-700 dark:text-slate-300">Arabic:</strong> Mother tongue<br>
+                    <strong class="text-slate-700 dark:text-slate-300">English:</strong> Very good command (Reading, Spoken, Written)
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="education" class="py-16 bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Education -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Education</h2>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 dark:bg-blue-900/60 dark:text-blue-300 rounded-full mb-3">Master of Science</span>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">M.Sc. - Faculty of Science</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Alexandria University</p>
+                        <div class="mt-4 flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-medium text-sm">
+                            <i class="fas fa-award"></i> Grade: Excellent
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certification -->
+                <div id="certifications">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Certifications</h2>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shadow-sm relative overflow-hidden">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <span class="inline-block px-3 py-1 text-xs font-semibold text-purple-700 bg-purple-100 dark:bg-purple-900/60 dark:text-purple-300 rounded-full mb-2">Manara Official Certificate</span>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Intro to Gen AI & Prompt Engineering</h3>
+                            </div>
+                            <i class="fas fa-qrcode text-3xl text-slate-400 dark:text-slate-500"></i>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">Successfully completed the Manara learning path covering Prompt Engineering fundamentals and Generative AI application.</p>
+                        <p class="text-xs text-slate-400 dark:text-slate-500 mt-4"><i class="fas fa-check-circle text-emerald-500 mr-1"></i> Verified Completion</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 sm:p-12 text-white shadow-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-extrabold mb-4">Interests & Activities</h2>
+                    <p class="text-blue-100 text-sm leading-relaxed mb-6">When not optimizing spreadsheets or processing data sets, Emad enjoys activities that stimulate analytical thinking and continuous learning.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md text-sm flex items-center gap-2"><i class="fas fa-book"></i> Reading</span>
+                        <span class="px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md text-sm flex items-center gap-2"><i class="fas fa-globe"></i> Internet Research</span>
+                        <span class="px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md text-sm flex items-center gap-2"><i class="fas fa-desktop"></i> Computer Tech</span>
+                        <span class="px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md text-sm flex items-center gap-2"><i class="fas fa-chess"></i> Chess</span>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 text-xs space-y-2">
+                    <h3 class="font-bold text-sm text-white border-b border-white/20 pb-2 mb-3">General Information</h3>
+                    <div class="flex justify-between py-1">
+                        <span class="text-blue-200">Nationality:</span>
+                        <span class="font-semibold text-white">Egyptian</span>
+                    </div>
+                    <div class="flex justify-between py-1">
+                        <span class="text-blue-200">Location:</span>
+                        <span class="font-semibold text-white">Alexandria, Egypt</span>
+                    </div>
+                    <div class="flex justify-between py-1">
+                        <span class="text-blue-200">Military Status:</span>
+                        <span class="font-semibold text-white">Exempted</span>
+                    </div>
+                    <div class="flex justify-between py-1">
+                        <span class="text-blue-200">Marital Status:</span>
+                        <span class="font-semibold text-white">Married</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-slate-100 dark:bg-slate-800/80 mt-auto border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-xs font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase">Contact</h2>
+                <p class="mt-2 text-3xl font-bold text-slate-900 dark:text-white">Let's Work Together</p>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">Feel free to reach out directly via email or phone for employment or collaboration opportunities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Phone Card -->
+                <a href="tel:+201207416818" class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center space-x-4 shadow-sm hover:shadow-md transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Phone & WhatsApp</p>
+                        <p class="font-bold text-slate-900 dark:text-white text-lg">+20 120741 6818</p>
+                    </div>
+                </a>
+
+                <!-- Email Card -->
+                <a href="mailto:eemhan.2020@gmail.com" class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center space-x-4 shadow-sm hover:shadow-md transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Email Address</p>
+                        <p class="font-bold text-slate-900 dark:text-white text-base sm:text-lg">eemhan.2020@gmail.com</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="text-center mt-12 pt-8 border-t border-slate-200 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
+                <p>&copy; Emad Eddeen M. H. Abdel Naby (Emad Eddeen Abdelnaby). All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Theme toggle logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        // Check system preference or default to light
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Skills Filter Logic
+        function filterSkills(category) {
+            const cards = document.querySelectorAll('.skill-card');
+            const tabs = document.querySelectorAll('.skill-tab');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
+                tab.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            });
+
+            event.currentTarget.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            event.currentTarget.classList.add('bg-blue-600', 'text-white', 'shadow-md');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
