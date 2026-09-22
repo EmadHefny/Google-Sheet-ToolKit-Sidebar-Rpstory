@@ -1,5 +1,5 @@
-# Google-Sheet™-ToolKit-Sidebar-Rpstory
-This repository is dedicated for developing Google Sheet™ 38 icons Toolkit Sidebar Addon that step your experience on using Google Sheet to the next level
+# Google™-Sheet™-ToolKit-Sidebar-Rpstory
+This repository is dedicated for developing Google™ Sheet™ 38 icons Toolkit Sidebar Addon that step your experience on using Google Sheet to the next level
 
 Key Features & Capabilities
 ===========================
