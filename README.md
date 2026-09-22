@@ -1,5 +1,5 @@
-# Google-Sheet-ToolKit-Sidebar-Rpstory
-This repository is dedicated for developing Google Sheet 38 icons Toolkit Sidebar Addon that step your experience on using Google Sheet to the next level
+# Google-Sheet™-ToolKit-Sidebar-Rpstory
+This repository is dedicated for developing Google Sheet™ 38 icons Toolkit Sidebar Addon that step your experience on using Google Sheet to the next level
 
 Key Features & Capabilities
 ===========================
@@ -12,4 +12,4 @@ Instant Structural Controls: Insert rows and columns, adjust precise pixel heigh
 
 Layout & Alignment Toggles: Switch text alignments (horizontal and vertical), toggle text wrapping, hide/unhide specific ranges, or convert entire sheets between Right-to-Left (RTL) and Left-to-Right (LTR) views.
 
-1-Click WhatsApp & SMS Messaging: Launch pre-filled WhatsApp conversations or native SMS messages directly from selected recipient phone numbers without ever leaving your sheet.
+1-Click WhatsApp™ & SMS Messaging: Launch pre-filled WhatsApp conversations or native SMS™ messages directly from selected recipient phone numbers without ever leaving your sheet.
